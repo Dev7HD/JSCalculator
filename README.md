@@ -1,6 +1,6 @@
 # JavaScript Calculator 🧮
 
-[![Javascript Calculator](images/calculator.png)](https://github.com/Dev7HD/JSCalculator)
+[![Javascript Calculator](images/calculator.png)](https://dev7hd.github.io/JSCalculator/)
 
 A JavaScript Calculator created by [Dev7HD](https://github.com/Dev7HD).
 
@@ -10,7 +10,7 @@ The Simple JavaScript Calculator is a user-friendly web-based calculator develop
 
 ## Usage 🚀
 
-Access the Simple JavaScript Calculator through the following link: [JavaScript Calculator](https://github.com/Dev7HD/JSCalculator).
+Access the Simple JavaScript Calculator through the following link: [JavaScript Calculator](https://dev7hd.github.io/JSCalculator/).
 
 Simply input your mathematical expressions and leverage the calculator's features to perform calculations effortlessly.
 
