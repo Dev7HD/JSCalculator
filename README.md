@@ -1,8 +1,8 @@
-# Simple JavaScript Calculator 🧮
+# JavaScript Calculator 🧮
 
 [![Javascript Calculator](images/calculator.png)](https://github.com/Dev7HD/JSCalculator)
 
-A simple JavaScript Calculator created by [Dev7HD](https://github.com/Dev7HD).
+A JavaScript Calculator created by [Dev7HD](https://github.com/Dev7HD).
 
 ## Overview 🌐
 
