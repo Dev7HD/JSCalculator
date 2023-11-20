@@ -27,6 +27,7 @@
         content="JavaScript Calculator by Dev7HD" />
 	<meta property="twitter:image" content="Calculator by Dev7HD" />
 	<link rel='icon' type='logo' href='./images/logo.png' />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
     <div class="toggle-container">
@@ -37,8 +38,8 @@
     </div>
 	<div class="container">
         <h1>
-            <a style="text-decoration: none; color: #f1c40f; margin-left: 1.25rem; cursor: pointer;" onclick="location.reload();">CALCULATOR</a>
-            <img id="historybutton" src="./images/history.png">	
+            <a style="text-decoration: none; margin-left: 1.25rem; cursor: pointer;" onclick="location.reload();" id="title">CALCULATOR</a>
+            <img id="historybutton" src="./images/history.png">
         </h1>
         <div class="calculator">
             <input type="text" name="screen" id="answer" readonly>
@@ -49,10 +50,10 @@
                     <td>
                         <div class="row">
                             <div class="col">
-                                <button style="background-color: #f01600; font-weight: bold; color: #ecf0f1; width: 8vw;" onclick="clearAll()">C</button>
+                                <button style="background-color: #484b6a; font-weight: bold; color: #ecf0f1; width: 8vw;" onclick="clearAll()">C</button>
                             </div>
                             <div class="col">
-                                <button style="background-color: #f01600; font-weight: bold; color: #ecf0f1;width: 8vw;" onclick="deleteLastEntry()">CE</button>
+                                <button style="background-color: #484b6a; font-weight: bold; color: #ecf0f1;width: 8vw;" onclick="deleteLastEntry()">CE</button>
                             </div>
                         </div>
                     </td>
@@ -84,8 +85,8 @@
                 </tr>
             </table>
             <hr style="max-width: 50vw;">
-            <div style="font-size:1rem; display: flex; align-items: center; justify-content: center;">
-                Made by <a style="text-decoration: none; color: #f1c40f; margin-left: 0.25rem;" target="_blank" href="https://github.com/Dev7HD">Hamza DAMIRI (Dev7HD)</a>
+            <div style="font-size:1rem; display: flex; align-items: center; justify-content: center; color: #9394a5">
+                Made by <a style="text-decoration: none; color: #484b6a; margin-left: 0.25rem;" target="_blank" href="https://github.com/Dev7HD">Hamza DAMIRI (Dev7HD)</a>
             </div>
         </div>
 	</div>
@@ -110,9 +111,15 @@
 <script>
 	const toggleMode = document.getElementById('toggle-mode');
 	const container = document.querySelector('.container');
+    const body = document.querySelector("body");
+    const input = document.querySelector('input');
+    const hist = document.getElementById("history");
 
 	toggleMode.addEventListener('change', function() {
 		container.classList.toggle('dark-mode');
+        body.classList.toggle('dark-mode');
+        input.classList.toggle('dark-mode');
+        hist.classList.toggle('dark-mode');
 	});
 
     document.addEventListener('keydown', function (event) {
@@ -124,10 +131,6 @@
     //  "Enter" key is pressed, trigger the "=" button press
         if (key === 'Enter') {
             handleButtonPress('=');
-        }
-        // "Delete" or "Backspace" key is pressed, trigger the "CE" button press
-        if (key === 'Delete' || key === 'Backspace') {
-            handleButtonPress('CE');
         }
         //number key is pressed, trigger the corresponding number button press
         if (/[0-9]/.test(key)) {

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "CascadiaCode";
+    src: url("/font/CascadiaCodePL-Regular.otf") format("opentype");
+    font-style: normal;
+}
 body,
 html {
     padding: 0;
@@ -5,10 +10,9 @@ html {
     display: flex;
     justify-content: center;
     color: #ecf0f1;
-    background-color: rgb(23, 24, 37);
-    font-family: 'Fjalla One', sans-serif;
+    //background-color: #F1F0E8;
     animation: fadein 1.5s;
-    font-family: 'Fjalla One', sans-serif;
+    font-family: "CascadiaCode", sans-serif ;
 }
  @keyframes fadein {
     0% {
@@ -23,10 +27,16 @@ h1 {
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 0;
-} 
-
+}
+body{
+    background-color: #9394a5;
+}
+#title{
+    color: #484b6a;
+}
 input {
-    background-color: rgba(52, 73, 94, 0.5);
+    background-color: #e4e5f1;
+    font-family: "CascadiaCode", sans-serif ;
     color: #ecf0f1;
     outline: none;
     text-align: right;
@@ -36,7 +46,7 @@ input {
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.5rem 1.5rem;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 0px 10px 0px #D0FBF5;
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
@@ -48,6 +58,8 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #d2d3db;
+    border-radius: 1rem;
 }
 
 .calculator {
@@ -60,6 +72,7 @@ table {
 }
 
 button {
+    font-family: "CascadiaCode", sans-serif ;
     border: none;
     background-color: white;
     width: 20vw;
@@ -74,12 +87,17 @@ button {
     -o-transition: all ease 0.5s;
 }
 button:active {
-    transform: scale(0.95);
+    transform: scale(0.98%);
     /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 3px 2px 22px 1px #fafafa;
     /* Lowering the shadow */
 }
-
+.dark-mode button:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px #484b6a;
+    /* Lowering the shadow */
+}
 button:hover {
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -170,9 +188,9 @@ a:hover{
 
 .toggle-container {
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     left: 3rem;
-    
+    z-index: 5;
 }
 
 .toggle-switch {
@@ -235,22 +253,34 @@ input:checked + .toggle-slider:before {
 /* Dark mode styles */
 
 .dark-mode {
-    background-color: black;
+    background-color: #151515;
     border-radius: 10px;
-    color: #fff;
+    color: #B4A5A5;
 }
 
-.dark-mode body,
-.dark-mode html {
-     background-color: black; 
+.dark-mode #history{
+    background-color: #9394a5;
+}
+
+.dark-mode input{
+    -webkit-box-shadow: 0px 0px 10px 0px #fafafa;
+    -moz-box-shadow: 0px 0px 10px 0px #fafafa;
+    box-shadow: 0px 0px 10px 0px #fafafa;
+    color: #484b6a
+}
+
+.dark-mode body, .dark-mode html {
+     background-color: #151515 !important;
      border-radius: 10px;
-     
 }
-
+.dark-mode .container{
+    -webkit-box-shadow: 0px 0px 10px 0px #fafafa;
+    -moz-box-shadow: 0px 0px 10px 0px #fafafa;
+    box-shadow: 0px 0px 10px 0px #fafafa;
+}
 .dark-mode .calculator {
-     background-color: black; 
+     background-color: #151515;
      border-radius: 10px;
-   
 }
 
 .dark-mode table {
@@ -259,11 +289,14 @@ input:checked + .toggle-slider:before {
 }
 
 .dark-mode button {
-    background-color: #555;
-    color: #fff;
+    background-color: #3C415C;
+    color: #B4A5A5;
     border-radius: 10px;
 }
 
+.dark-mode #title{
+    color: #B4A5A5
+}
 
  .dark-mode a {
     color: #fff;

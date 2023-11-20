@@ -10,7 +10,7 @@ The Simple JavaScript Calculator is a user-friendly web-based calculator develop
 
 ## Usage 🚀
 
-Access the Simple JavaScript Calculator through the following link: [JavaScript Calculator](https://dev7hd.github.io/JSCalculator/).
+Access the JavaScript Calculator through the following link: [JavaScript Calculator](https://dev7hd.github.io/JSCalculator/).
 
 Simply input your mathematical expressions and leverage the calculator's features to perform calculations effortlessly.
 

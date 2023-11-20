@@ -3,8 +3,11 @@ let history = document.getElementById('history');
 let bar1 = document.getElementById('bar1');
 let bar2 = document.getElementById('bar2');
 let dis=document.getElementById('answer');
-
+localStorage.setItem("calcHistory", JSON.stringify([]))
 function showHistory() {
+    if (localStorage.getItem("calcHistory") == null) {
+        localStorage.setItem("calcHistory", JSON.stringify([]))
+    }
     let calcHistory = JSON.parse(localStorage.getItem("calcHistory")) || [];
     let len = calcHistory.length;
 
@@ -23,7 +26,7 @@ function showHistory() {
             const element = calcHistory[index];
             let historyItem = document.createElement('div');
             historyItem.className = 'historyelement';
-            historyItem.innerHTML = `${element.lastScreenValue} = <span style="color: ${element.result < 0 ? 'red' : 'green'}">${element.result}</span>`;//it makes red color in the history section .............
+            historyItem.innerHTML = `${element.op} = <span style="color: ${element.result < 0 ? 'red' : 'green'}">${element.result}</span>`;//it makes red color in the history section .............
             history.appendChild(historyItem);
             if (index > 0) history.appendChild(document.createElement('hr'));
         }
@@ -36,6 +39,8 @@ historybutton.addEventListener('click', showHistory);
 
 function clearAll(){
     dis.value=''
+    storArr = [];
+    localStorage.setItem("calcHistory", JSON.stringify([]))
 }
 
 function hide(){
@@ -48,7 +53,6 @@ function deleteLastEntry() {
     if (calcHistory.length > 0) {
       calcHistory.pop(); 
       localStorage.setItem("calcHistory", JSON.stringify(calcHistory));
-      showHistory();
     }
   }
 

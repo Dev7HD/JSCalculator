@@ -2,6 +2,9 @@ console.log(
   "Javascript Calculator Made by Dev7HD\nhttps://github.com/Dev7HD"
 );
 
+var op,res;
+var storArr = [];
+
 let flag = 0;
 
 function isNumber(char) {
@@ -27,10 +30,23 @@ for (item of buttons) {
       isSign = true;
       screenValue += buttonText;
       screen.value = screenValue;
+      op = screenValue;
     } else if (buttonText == "C") {
       if (flag == 1) {
         flag = 0;
       }
+      op = '';
+      result = '';
+      screenValue = "";
+      screen.value = screenValue;
+      screen.classList.remove("negative"); // Remove negative class
+      isSign = true;
+    }else if(buttonText == "CE"){
+      if (flag == 1) {
+        flag = 0;
+      }
+      op = '';
+      result = '';
       screenValue = "";
       screen.value = screenValue;
       screen.classList.remove("negative"); // Remove negative class
@@ -48,15 +64,19 @@ for (item of buttons) {
       }
       screenValue+=buttonText;
       screen.value=screenValue;
+      op = screenValue;
     } 
     else if (isNumber(buttonText)) {
       if (flag == 1) {
         screenValue = buttonText;
+        op = screenValue;
         flag = 0;
       } else {
         screenValue += buttonText;
+        op = screenValue;
       }
       screen.value = screenValue;
+      op = screenValue;
       isSign = false;
       screen.classList.remove("negative"); // Remove negative class
     } else {
@@ -67,10 +87,16 @@ for (item of buttons) {
         screenValue = screen.value + buttonText;
         screen.value = screenValue;
         isSign = true;
+        op = screenValue;
       }
       screen.classList.remove("negative"); // Remove negative class
     }
   });
+}
+
+const storing = (operation,result) => {
+  storArr.push({op:operation,result:result});
+  localStorage.setItem("calcHistory", JSON.stringify(storArr));
 }
 
 document.addEventListener("keydown", function (event) {
@@ -92,6 +118,8 @@ function checkForBracketMulti() {
     screen.value = eval(screenValue);
     lastScreenValue = screenValue;
     screenValue = screen.value;
+    res = screenValue;
+    storing(op,res);
     if (parseFloat(screen.value) < 0) {
       screen.classList.add("negative");
     } else {
