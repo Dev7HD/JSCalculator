@@ -31,25 +31,12 @@ for (item of buttons) {
       screenValue += buttonText;
       screen.value = screenValue;
       op = screenValue;
-    } else if (buttonText == "C") {
-      if (flag == 1) {
-        flag = 0;
-      }
+    } else if (buttonText == "C" || buttonText == "CE") {
       op = '';
       result = '';
       screenValue = "";
       screen.value = screenValue;
-      screen.classList.remove("negative"); // Remove negative class
-      isSign = true;
-    }else if(buttonText == "CE"){
-      if (flag == 1) {
-        flag = 0;
-      }
-      op = '';
-      result = '';
-      screenValue = "";
-      screen.value = screenValue;
-      screen.classList.remove("negative"); // Remove negative class
+      screen.classList.remove("negative");
       isSign = true;
     } else if (buttonText == "=") {
       checkForBracketMulti();
@@ -113,9 +100,10 @@ window.onerror = function () {
 
 
 function checkForBracketMulti() {
-
-  if (eval(screenValue) !== undefined) {
-    screen.value = eval(screenValue);
+  const calculate = new Function('return ' + screenValue);
+  const calculateValue = calculate();
+  if (calculateValue !== undefined) {
+    screen.value = calculateValue;
     lastScreenValue = screenValue;
     screenValue = screen.value;
     res = screenValue;

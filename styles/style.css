@@ -85,9 +85,12 @@ button {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -o-transition: all ease 0.5s;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 button:active {
-    transform: scale(0.98%);
+    transform: scale(0.98);
     /* Scaling button to 0.98 to its original size */
     box-shadow: 3px 2px 22px 1px #fafafa;
     /* Lowering the shadow */
@@ -142,7 +145,7 @@ a:hover{
 #history{
     position: absolute;
     width:90%;
-    height: 80vh;
+    min-height: 80vh;
     top:10vh;
     background-color: white;
     border: 6px solid black;
@@ -150,10 +153,28 @@ a:hover{
     display: none;
 }
 
+.historyelement {
+    font-size: 16px;
+}
+@media (min-width:768px) {
+    .historyelement {
+        font-size: 18px;
+    }
+}
+@media (min-width:1024px) {
+    .historyelement {
+        font-size: 19px;
+    }
+}
+@media (min-width:1280px) {
+    .historyelement {
+        font-size: 20px;
+    }
+}
+
 .historyelement{
     color: black;
     margin: 20px;
-    font-size: 40px;
 }
 
 #bar1, #bar2{
@@ -313,6 +334,7 @@ input:checked + .toggle-slider:before {
  
 #answer {
     caret-color: #0f38f1;
+    color: #484b6a;
 }
 .negative {
     color: red;
