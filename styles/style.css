@@ -46,12 +46,12 @@ input {
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.5rem 1.5rem;
-    -webkit-box-shadow: 0px 0px 10px 0px #D0FBF5;
+ /*   -webkit-box-shadow: 0px 0px 10px 0px #D0FBF5;
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);*/
 }
 
-.container {
+.container1 {
     margin: auto;
     text-align: center;
     position: absolute;
@@ -78,8 +78,8 @@ button {
     width: 20vw;
     height: 10vh;
     padding: 0.5rem 0;
-    margin: 0.25vmax;
-    font-size: 2vmax;
+    margin: 0.25vmax !important;
+    font-size: 2vmax !important;
     border-radius: 1rem;
     -moz-transition: all ease 0.5s;
     -webkit-transition: all 0.5s ease;
@@ -89,6 +89,16 @@ button {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+#answer{
+    height: 5vh;
+
+}
+.display{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
 button:active {
     transform: scale(0.98);
     /* Scaling button to 0.98 to its original size */
@@ -153,6 +163,32 @@ a:hover{
     display: none;
 }
 
+.backspace-input-container {
+    position: relative;
+}
+
+.backspace-input {
+    font-size: 2vmax;
+    padding: 10px;
+    width: 60vw;
+}
+
+.backspace-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 10vw;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+svg {
+    width: 30px;
+    height: 40px;
+}
 .historyelement {
     font-size: 16px;
 }
@@ -160,15 +196,27 @@ a:hover{
     .historyelement {
         font-size: 18px;
     }
+    svg {
+        width: 50%;
+        height: 50%;
+    }
 }
 @media (min-width:1024px) {
     .historyelement {
         font-size: 19px;
     }
+    svg {
+        width: 35%;
+        height: 35%;
+    }
 }
 @media (min-width:1280px) {
     .historyelement {
         font-size: 20px;
+    }
+    svg {
+        width: 30%;
+        height: 30%;
     }
 }
 
@@ -209,7 +257,7 @@ a:hover{
 
 .toggle-container {
     position: absolute;
-    top: 3rem;
+    top: 1rem;
     left: 3rem;
     z-index: 5;
 }
@@ -294,7 +342,7 @@ input:checked + .toggle-slider:before {
      background-color: #151515 !important;
      border-radius: 10px;
 }
-.dark-mode .container{
+.dark-mode .container1{
     -webkit-box-shadow: 0px 0px 10px 0px #fafafa;
     -moz-box-shadow: 0px 0px 10px 0px #fafafa;
     box-shadow: 0px 0px 10px 0px #fafafa;
@@ -325,11 +373,11 @@ input:checked + .toggle-slider:before {
 }
 
 .row{
-    display: flex;
-    font-size: 1rem;
-    justify-content: center;
-    max-width: 20vw;
-    margin: auto;
+    display: flex !important;
+    font-size: 1rem !important;
+    justify-content: center !important;
+    max-width: 20vw !important;
+    margin: auto !important;
 }
  
 #answer {
@@ -338,4 +386,8 @@ input:checked + .toggle-slider:before {
 }
 .negative {
     color: red;
-  }
+}
+
+.display{
+    margin-bottom: 1%;
+}
