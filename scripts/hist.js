@@ -33,26 +33,28 @@ function showHistory() {
             }
         }
     }
-
-    history.style.display = 'block';
 }
 
-// Event listeners
-historybutton.addEventListener('click', showHistory);
-bar1.addEventListener('click', hide);
-bar2.addEventListener('click', hide);
+historybutton.addEventListener('click',function() {
+    showHistory();  // Call the function to display history
+    $('#history').show(500);
+});
+
+bar1.addEventListener('click', function (){
+    $('#bar1').hide(500)
+    $('#bar2').hide(500)
+    $('#history').hide(500)
+});
+bar2.addEventListener('click', function (){
+    $('#bar1').hide(500)
+    $('#bar2').hide(500)
+    $('#history').hide(500)
+});
 
 // Function to clear all
 function clearAll() {
     dis.value = '';
     localStorage.setItem("calcHistory", JSON.stringify([]));
-}
-
-// Function to hide history
-function hide() {
-    history.style.display = 'none';
-    bar1.style.display = 'none';
-    bar2.style.display = 'none';
 }
 
 // Function to delete last entry
