@@ -28,6 +28,10 @@
 	<meta property="twitter:image" content="Calculator by Dev7HD" />
 	<link rel='icon' type='logo' href='./images/logo.png' />
     <script src="./scripts/jquery-3.7.1.js"></script>
+    <link
+            rel="stylesheet"
+            href="./node_modules/animate.css/animate.css"
+    />
 </head>
 <body>
     <div class="toggle-container">
@@ -53,43 +57,36 @@
             </div>
             <table>
                 <tr>
-                    <td><button>(</button></td>
-                    <td><button>)</button></td>
+                    <td><button class="operator">(</button></td>
+                    <td><button class="operator">)</button></td>
                     <td>
-                        <div class="row">
-                            <div class="col">
-                                <button style="background-color: #484b6a; font-weight: bold; color: #ecf0f1; width: 8vw;" onclick="clearAll()">C</button>
-                            </div>
-                            <div class="col">
-                                <button style="background-color: #484b6a; font-weight: bold; color: #ecf0f1;width: 8vw;" onclick="deleteLastEntry()">CE</button>
-                            </div>
-                        </div>
+                        <button class="operator" style="background-color: #484b6a; font-weight: bold; color: #ecf0f1; " onclick="clearAll()">AC</button>
                     </td>
-                    <td><button>%</button></td>
+                    <td><button class="operator">%</button></td>
                 </tr>
                 <tr>
                     <td><button>7</button></td>
                     <td><button>8</button></td>
                     <td><button>9</button></td>
-                    <td><button>X</button></td>
+                    <td><button class="operator">X</button></td>
                 </tr>
                 <tr>
                     <td><button>4</button></td>
                     <td><button>5</button></td>
                     <td><button>6</button></td>
-                    <td><button>-</button></td>
+                    <td><button class="operator">-</button></td>
                 </tr>
                 <tr>
                     <td><button>1</button></td>
                     <td><button>2</button></td>
                     <td><button>3</button></td>
-                    <td><button>+</button></td>
+                    <td><button class="operator">+</button></td>
                 </tr>
                 <tr>
                     <td><button>0</button></td>
                     <td><button style="font-weight: bold;">.</button></td>
-                    <td><button>/</button></td>
-                    <td><button style="background-color: #25db72; font-weight: bold; color: #ecf0f1;">=</button></td>
+                    <td><button class="operator">/</button></td>
+                    <td><button class="operator" style="background-color: #25db72; font-weight: bold; color: #ecf0f1;">=</button></td>
                 </tr>
             </table>
             <hr style="max-width: 50vw;">
@@ -103,6 +100,14 @@
     <div id="history"></div>
     <div id="turn">
         PLEASE TURN YOUR DEVICE
+    </div>
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close"><img src="./images/close.png"></span>
+            <img id="warning" src="./images/warning.png">
+            <p id="errorMessage">PLEASE INPUT VALID EXPRESSION</p>
+        </div>
     </div>
 </body>
 
@@ -122,33 +127,6 @@
         hist.classList.toggle('dark-mode');
 	});
 
-    document.addEventListener('keydown', function (event) {
-        handleKeyPress(event.key);
-    });
-
-    // This function will be responsible for handling the button press from the keyboard..Try this key also if want you can also change these settings,...
-    function handleKeyPress(key) {
-    //  "Enter" key is pressed, trigger the "=" button press
-        if (key === 'Enter') {
-            handleButtonPress('=');
-        }
-        //number key is pressed, trigger the corresponding number button press
-        if (/[0-9]/.test(key)) {
-            handleButtonPress(key);
-        }
-        //  operator key is pressed (+, -, *, /), trigger the corresponding operator button press
-        if (/[\+\-\*\/%]/.test(key)) {
-            handleButtonPress(key);
-        }
-    }
-    function handleButtonPress(value) {
-        // This function simulates the button press of the calculator for the given value
-        // Find the corresponding button element based on the value
-        const button = document.querySelector(`button[value="${value}"]`);
-        if (button) {
-            button.click();
-        }
-    }
     function removeLastCharacter() {
         const inputField = document.getElementById('answer');
         const currentValue = inputField.value;

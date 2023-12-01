@@ -187,11 +187,11 @@ svg {
     height: 40px;
 }
 .historyelement {
-    font-size: 16px;
+    font-size: 26px;
 }
 @media (min-width:768px) {
     .historyelement {
-        font-size: 18px;
+        font-size: 20px;
     }
     svg {
         width: 50%;
@@ -200,7 +200,7 @@ svg {
 }
 @media (min-width:1024px) {
     .historyelement {
-        font-size: 19px;
+        font-size: 22px;
     }
     svg {
         width: 35%;
@@ -209,7 +209,7 @@ svg {
 }
 @media (min-width:1280px) {
     .historyelement {
-        font-size: 20px;
+        font-size: 28px;
     }
     svg {
         width: 30%;
@@ -344,16 +344,16 @@ input:checked + .toggle-slider:before {
 }
 
 .dark-mode body, .dark-mode html {
-     background-color: #151515 !important;
+     background-color: #131313 !important;
      border-radius: 10px;
 }
 .dark-mode .container{
-    -webkit-box-shadow: 0 0 10px 0 #fafafa;
-    -moz-box-shadow: 0 0 10px 0 #fafafa;
-    box-shadow: 0 0 10px 0 #fafafa;
+    -webkit-box-shadow: 0 0 10px 0 #323232;
+    -moz-box-shadow: 0 0 10px 0 #323232;
+    box-shadow: 0 0 10px 0 #323232;
 }
 .dark-mode .calculator {
-     background-color: #151515;
+     background-color: #131313;
      border-radius: 10px;
 }
 
@@ -363,13 +363,18 @@ input:checked + .toggle-slider:before {
 }
 
 .dark-mode button {
-    background-color: #3C415C;
+    background-color: #323232;
     color: #B4A5A5;
     border-radius: 10px;
 }
 
+.dark-mode .operator {
+    background-color: #2a254b !important;
+    color: #7e53f8 !important;
+}
+
 .dark-mode #title{
-    color: #B4A5A5
+    color: #7e53f8
 }
 
  .dark-mode a {
@@ -390,9 +395,86 @@ input:checked + .toggle-slider:before {
     color: #484b6a;
 }
 .negative {
-    color: red;
+    color: red !important;
 }
 
 .display{
     margin-bottom: 1%;
+}
+
+/* CSS for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    top: 20px;
+    background-color: #fefefe;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ff4155;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+#warning {
+    width: 300px;
+    margin: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close img {
+    width: 70px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dark-mode .modal-content {
+    background-color: #3C415C;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+    }
+    #warning {
+        width: 80%;
+        margin: 5px;
+    }
+    .close img {
+        width: 50px;
+    }
 }

@@ -31,13 +31,14 @@ function showHistory() {
             if (index > 0) {
                 history.appendChild(document.createElement('hr'));
             }
+            // $('#history').addClass('animate__fadeInDown');
         }
     }
 }
 
 historybutton.addEventListener('click',function() {
     showHistory();  // Call the function to display history
-    $('#history').show(500);
+    $('#history').addClass('animate__fadeInDown').show(1000);
 });
 
 bar1.addEventListener('click', function (){
