@@ -24,6 +24,7 @@ const handleButtonClick = (buttonText) => {
     screenValue += buttonText;
   } else if (buttonText === "AC") {
     eraseInput();
+    $("#answer").focus()
   } else if (buttonText === "=") {
     makeCal();
   } else if (buttonText === "(" || buttonText === ")") {

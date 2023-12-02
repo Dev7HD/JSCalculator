@@ -54,8 +54,9 @@ bar2.addEventListener('click', function (){
 
 // Function to clear all
 function clearAll() {
-    dis.value = '';
-    localStorage.setItem("calcHistory", JSON.stringify([]));
+    dis.value = ''
+    storArr = []
+    localStorage.setItem("calcHistory", JSON.stringify([]))
 }
 
 // Function to delete last entry
