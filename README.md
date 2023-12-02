@@ -26,6 +26,10 @@ To use the calculator, simply open the `index.html` file in your browser.
 ![Dark Mode Screenshot](./screenshots/dark-mode.png)
 ![History Screenshot](./screenshots/history.png)
 
+## Try it
+
+**CalculatorJS** - [Click here](https://dev7hd.github.io/JSCalculator/)
+
 ## Contributing
 
 This project is open for contributions. Feel free to fork the repository, make changes, and submit pull requests.
