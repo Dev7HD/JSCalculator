@@ -404,7 +404,6 @@ input:checked + .toggle-slider:before {
 
 /* CSS for the modal */
 .modal {
-    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -477,4 +476,17 @@ input:checked + .toggle-slider:before {
     .close img {
         width: 50px;
     }
+}
+
+/*Pop-up animation*/
+.popup {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 250ms;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
 }

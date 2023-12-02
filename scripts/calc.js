@@ -7,6 +7,7 @@ let storArr = [];
 let screenValue = '';
 let flag = 0;
 let isSign = true;
+const errorModal = document.getElementById("errorModal");
 
 // Function to check if a character is a number
 const isNumber = (char) => /^\d$/.test(char);
@@ -61,14 +62,11 @@ document.querySelectorAll("button").forEach((item) => {
 // Handling keyboard inputs
 $(document).keydown(function (event) {
   const key = event.key;
-  let errorModal = document.getElementById('errorModal')
-  if(errorModal.style.display === "block" && key === 'Escape'){
-    $("#errorModal").css("display", "none")
-  }
   if (key === 'Enter') {
     op = screen.value;
     makeCal();
   } else if (key === 'Escape') {
+    errorModal.classList.remove("show")
     eraseInput();
   } else if (!isNaN(key) || '+-*/.()'.includes(key)) {
     screenValue = screen.value + key;
@@ -120,18 +118,16 @@ function checkForBracketMulti() {
 }
 
 // Error handling
-window.onerror = function (msg, url, lineNo, columnNo, error) {
-  const errorModal = document.getElementById("errorModal");
+
+window.onerror =  () => {
   const errorMessage = document.getElementById("errorMessage");
-
   errorMessage.textContent = "PLEASE INPUT VALID EXPRESSION";
-  errorModal.style.display = "block";
-
+  errorModal.classList.add("show")
   // Prevent default browser error handling
   return false;
 };
 
 // Close the modal when clicking the close button (×)
 document.querySelector(".close").addEventListener("click", function () {
-  document.getElementById("errorModal").style.display = "none";
+  errorModal.classList.remove("show")
 });
