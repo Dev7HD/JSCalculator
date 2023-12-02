@@ -127,7 +127,6 @@ a{
 }
 
 a:hover{
-    text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
     -moz-transition: all ease 0.5s;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
@@ -157,7 +156,15 @@ a:hover{
     background-color: white;
     border: 6px solid black;
     border-radius: 10px;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 250ms;
+}
+
+#history.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
 }
 
 .backspace-input-container {
@@ -304,17 +311,17 @@ svg {
     background-color: rgb(233, 227, 227);
     -webkit-transition: .4s;
     transition: .4s;
-    border-radius: 50%;
+    border-radius: 34px;
 }
 
 input:checked + .toggle-slider {
     background-color: #2a2c2e;
-    border-radius: 10px;
+    border-radius: 34px;
 }
 
 input:focus + .toggle-slider {
     box-shadow: 0 0 1px #2b2c2d;
-    border-radius: 10px;
+    border-radius: 34px;
 }
 
 
@@ -427,7 +434,7 @@ input:checked + .toggle-slider:before {
     color: #ff4155;
     text-align: center;
     font-size: 30px;
-
+    border-radius: 20px;
 }
 
 #warning {

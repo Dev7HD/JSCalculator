@@ -38,18 +38,18 @@ function showHistory() {
 
 historybutton.addEventListener('click',function() {
     showHistory();  // Call the function to display history
-    $('#history').addClass('animate__fadeInDown').show(1000);
+    $('#history').addClass('show')
 });
 
 bar1.addEventListener('click', function (){
     $('#bar1').hide(500)
     $('#bar2').hide(500)
-    $('#history').hide(500)
+    $('#history').removeClass('show')
 });
 bar2.addEventListener('click', function (){
     $('#bar1').hide(500)
     $('#bar2').hide(500)
-    $('#history').hide(500)
+    $('#history').removeClass('show')
 });
 
 // Function to clear all

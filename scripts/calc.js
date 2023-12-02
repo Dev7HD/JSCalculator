@@ -67,7 +67,11 @@ $(document).keydown(function (event) {
     op = screen.value;
     makeCal();
   } else if (key === 'Escape') {
+    //Handling 'Escape' keydown event
     errorModal.classList.remove("show")
+    $('#history').removeClass("show")
+    $('#bar1').hide(500)
+    $('#bar2').hide(500)
     eraseInput();
   } else if (!isNaN(key) || '+-*/.()'.includes(key)) {
     screenValue = screen.value + key;
