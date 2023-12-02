@@ -1,19 +1,41 @@
-# JavaScript Calculator 🧮
+# Calculator Dev7HD 🧮
 
-[![Javascript Calculator](images/calculator.png)](https://dev7hd.github.io/JSCalculator/)
+This is a simple calculator application developed by me using HTML, CSS, and JavaScript.
 
-A JavaScript Calculator created by [Dev7HD](https://github.com/Dev7HD).
+## Features
 
-## Overview 🌐
+- Basic arithmetic operations: addition, subtraction, multiplication, and division
+- Parentheses support for complex expressions
+- Error handling for invalid inputs
+- Dark mode toggle
+- Calculation history tracking
 
-The Simple JavaScript Calculator is a user-friendly web-based calculator developed using JavaScript. It offers essential arithmetic operations to facilitate quick and efficient calculations.
+## Usage
 
-## Usage 🚀
+To use the calculator, simply open the `index.html` file in your browser.
 
-Access the JavaScript Calculator through the following link: [JavaScript Calculator](https://dev7hd.github.io/JSCalculator/).
+- Click on the buttons to input numbers and perform operations.
+- Use the `AC` button to clear all inputs.
+- The `=` button evaluates the expression.
+- Turn on dark mode using the toggle switch at the top right.
+- View calculation history by clicking on the history icon.
 
-Simply input your mathematical expressions and leverage the calculator's features to perform calculations effortlessly.
+## Screenshots
 
-## Contributors 👥
+![Calculator Screenshot](./screenshots/calculator.png)
+![Dark Mode Screenshot](./screenshots/dark-mode.png)
+![History Screenshot](./screenshots/history.png)
 
-Contributions are encouraged to enhance and refine this project. If you wish to contribute or address existing issues, feel free to do so. Let's collaborate to further improve this calculator! 🤝
+## Contributing
+
+This project is open for contributions. Feel free to fork the repository, make changes, and submit pull requests.
+
+## Credits
+
+- **Dev7HD** - [GitHub Profile](https://github.com/Dev7HD)
+
+---
+
+For any issues or suggestions, please open an issue on the [GitHub repository](https://github.com/Dev7HD/calculator).
+
+Happy calculating! 🎉
