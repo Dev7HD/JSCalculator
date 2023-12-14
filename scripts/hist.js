@@ -1,77 +1,76 @@
-// Selecting elements
-const historybutton = document.getElementById('historybutton');
-const history = document.getElementById('history');
-const bar1 = document.getElementById('bar1');
-const bar2 = document.getElementById('bar2');
-const dis = document.getElementById('answer');
+// Selecting elements using jQuery
+const $history = $('#history');
+const $bar1 = $('#bar1');
+const $bar2 = $('#bar2');
+const $dis = $('#answer');
 
 // Initializing localStorage
-if (!localStorage.getItem("calcHistory")) {
-    localStorage.setItem("calcHistory", JSON.stringify([]));
+if (!localStorage.getItem('calcHistory')) {
+    localStorage.setItem('calcHistory', JSON.stringify([]));
 }
 
 // Function to show history
 function showHistory() {
-    const calcHistory = JSON.parse(localStorage.getItem("calcHistory")) || [];
+    const calcHistory = JSON.parse(localStorage.getItem('calcHistory')) || [];
     const len = calcHistory.length;
 
-    history.innerHTML = '';
-    bar1.style.display = 'block';
-    bar2.style.display = 'block';
+    $history.html('');
+    $bar1.show(500);
+    $bar2.show(500);
 
     if (len === 0) {
         const historyItem = createHistoryItem("There's no history yet.");
-        history.appendChild(historyItem);
+        $history.append(historyItem);
     } else {
         for (let index = len - 1; index >= 0; index--) {
             const element = calcHistory[index];
             const historyItem = createHistoryItem(`${element.op} = <span style="color: ${element.result < 0 ? 'red' : 'green'}">${element.result}</span>`);
-            history.appendChild(historyItem);
+            $history.append(historyItem);
 
             if (index > 0) {
-                history.appendChild(document.createElement('hr'));
+                $history.append('<hr>');
             }
-            // $('#history').addClass('animate__fadeInDown');
         }
     }
 }
 
-historybutton.addEventListener('click',function() {
+// Event handler for history button click
+$('#historybutton').on('click', function () {
     showHistory();  // Call the function to display history
-    $('#history').addClass('show')
+    $history.addClass('show');
 });
 
-bar1.addEventListener('click', function (){
-    $('#bar1').hide(500)
-    $('#bar2').hide(500)
-    $('#history').removeClass('show')
+// Event handlers for hiding history bars
+$bar1.on('click', function () {
+    $bar1.hide(500);
+    $bar2.hide(500);
+    $history.removeClass('show');
 });
-bar2.addEventListener('click', function (){
-    $('#bar1').hide(500)
-    $('#bar2').hide(500)
-    $('#history').removeClass('show')
+
+$bar2.on('click', function () {
+    $bar1.hide(500);
+    $bar2.hide(500);
+    $history.removeClass('show');
 });
 
 // Function to clear all
 function clearAll() {
-    dis.value = ''
-    storArr = []
-    localStorage.setItem("calcHistory", JSON.stringify([]))
+    $dis.val('');
+    storArr = [];
+    localStorage.setItem('calcHistory', JSON.stringify([]));
 }
 
 // Function to delete last entry
 function deleteLastEntry() {
-    const calcHistory = JSON.parse(localStorage.getItem("calcHistory")) || [];
+    const calcHistory = JSON.parse(localStorage.getItem('calcHistory')) || [];
     if (calcHistory.length > 0) {
         calcHistory.pop();
-        localStorage.setItem("calcHistory", JSON.stringify(calcHistory));
+        localStorage.setItem('calcHistory', JSON.stringify(calcHistory));
     }
 }
 
 // Helper function to create a history item
 function createHistoryItem(content) {
-    const historyItem = document.createElement('div');
-    historyItem.className = 'historyelement';
-    historyItem.innerHTML = content;
-    return historyItem;
+    const $historyItem = $('<div>').addClass('historyelement').html(content);
+    return $historyItem.get(0); // Convert jQuery object to a regular DOM element
 }
