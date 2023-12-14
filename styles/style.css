@@ -450,14 +450,11 @@ input:checked + .toggle-slider:before {
     margin: 10px;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.modal-content .close {
+    align-self: flex-end
 }
-.close img {
-    width: 70px;
+.modal-content .close img {
+    width: 50px;
 }
 
 .close:hover,
@@ -488,7 +485,7 @@ input:checked + .toggle-slider:before {
         width: 80%;
         margin: 5px;
     }
-    .close img {
+    .modal-content .close img {
         width: 50px;
     }
 }
@@ -504,4 +501,65 @@ input:checked + .toggle-slider:before {
     visibility: visible;
     opacity: 1;
     transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
+}
+
+/* Pop-up #2 */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 250ms;
+}
+
+.overlay.show{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
+}
+
+.popup_1 {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #2b2c2d;
+}
+
+.popup_1 .close img{
+    width: 30px;
+    margin-bottom: 5px;
+
+}
+
+.popup_1 .close {
+    align-self: flex-end;
+}
+.popup_1 .close:hover {
+    color: #2a254b;
+}
+.popup_1 .content {
+    font-size: 20px;
+    overflow: auto;
+    text-align: left;
+}
+
+@media screen and (max-width: 700px){
+    .box{
+        width: 70%;
+    }
+    .popup_1{
+        width: 70%;
+    }
 }
